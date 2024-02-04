@@ -3,6 +3,7 @@ package com.alibaba.fastjson2.stream;
 import com.alibaba.fastjson2.JSONException;
 import com.alibaba.fastjson2.JSONFactory;
 import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.JSONReaderMethods;
 import com.alibaba.fastjson2.reader.ObjectReaderAdapter;
 
 import java.io.IOException;
@@ -164,7 +165,7 @@ class JSONStreamReaderUTF8<T>
             throw new JSONException("seekLine error", e);
         }
 
-        JSONReader reader = JSONReader.of(buf, lineStart, lineEnd - lineStart, charset, context);
+        JSONReader reader = JSONReaderMethods.of(buf, lineStart, lineEnd - lineStart, charset, context);
 
         Object object;
         if (objectReader != null) {

@@ -1318,9 +1318,9 @@ public class TypeUtils {
 
             JSONReader jsonReader;
             if (str.charAt(0) != '"') {
-                jsonReader = JSONReader.of('"' + str + '"');
+                jsonReader = JSONReaderMethods.of('"' + str + '"');
             } else {
-                jsonReader = JSONReader.of(str);
+                jsonReader = JSONReaderMethods.of(str);
             }
             return jsonReader.read(Instant.class);
         }
@@ -1474,7 +1474,7 @@ public class TypeUtils {
                     int intValue = (Integer) obj;
                     return (T) ((ObjectReaderImplEnum) objectReader).of(intValue);
                 } else {
-                    JSONReader jsonReader = JSONReader.of(JSON.toJSONString(obj));
+                    JSONReader jsonReader = JSONReaderMethods.of(JSON.toJSONString(obj));
                     return (T) objectReader.readObject(jsonReader, null, null, 0);
                 }
             }
@@ -1489,9 +1489,9 @@ public class TypeUtils {
             JSONReader jsonReader;
             char first = json.trim().charAt(0);
             if (first == '"' || first == '{' || first == '[') {
-                jsonReader = JSONReader.of(json);
+                jsonReader = JSONReaderMethods.of(json);
             } else {
-                jsonReader = JSONReader.of(
+                jsonReader = JSONReaderMethods.of(
                         JSON.toJSONString(json));
             }
 

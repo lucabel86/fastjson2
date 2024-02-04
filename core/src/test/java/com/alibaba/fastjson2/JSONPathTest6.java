@@ -20,7 +20,7 @@ public class JSONPathTest6 {
 
         Integer id = 1001;
         assertEquals(id, jsonPath.eval(object));
-        assertEquals(id, jsonPath.extract(JSONReader.of(json)));
+        assertEquals(id, jsonPath.extract(JSONReaderMethods.of(json)));
         assertEquals(id, jsonPath.extract(JSONReader.ofJSONB(jsonbBytes)));
         assertEquals(id, jsonPath.extract(json));
         assertEquals(id, jsonPath.extract(jsonBytes));
@@ -32,7 +32,7 @@ public class JSONPathTest6 {
 
         Long id = 1001L;
         assertEquals(id, jsonPath.eval(object));
-        assertEquals(id, jsonPath.extract(JSONReader.of(json)));
+        assertEquals(id, jsonPath.extract(JSONReaderMethods.of(json)));
         assertEquals(id, jsonPath.extract(JSONReader.ofJSONB(jsonbBytes)));
         assertEquals(id, jsonPath.extract(json));
         assertEquals(id, jsonPath.extract(jsonBytes));
@@ -44,7 +44,7 @@ public class JSONPathTest6 {
 
         BigInteger id = object.getBigInteger("id");
         assertEquals(id, jsonPath.eval(object));
-        assertEquals(id, jsonPath.extract(JSONReader.of(json)));
+        assertEquals(id, jsonPath.extract(JSONReaderMethods.of(json)));
         assertEquals(id, jsonPath.extract(JSONReader.ofJSONB(jsonbBytes)));
         assertEquals(id, jsonPath.extract(json));
         assertEquals(id, jsonPath.extract(jsonBytes));
@@ -56,7 +56,7 @@ public class JSONPathTest6 {
 
         BigDecimal id = object.getBigDecimal("id");
         assertEquals(id, jsonPath.eval(object));
-        assertEquals(id, jsonPath.extract(JSONReader.of(json)));
+        assertEquals(id, jsonPath.extract(JSONReaderMethods.of(json)));
         assertEquals(id, jsonPath.extract(JSONReader.ofJSONB(jsonbBytes)));
         assertEquals(id, jsonPath.extract(json));
         assertEquals(id, jsonPath.extract(jsonBytes));
@@ -68,7 +68,7 @@ public class JSONPathTest6 {
 
         String id = "1001";
         assertEquals(id, jsonPath.eval(object));
-        assertEquals(id, jsonPath.extract(JSONReader.of(json)));
+        assertEquals(id, jsonPath.extract(JSONReaderMethods.of(json)));
         assertEquals(id, jsonPath.extract(JSONReader.ofJSONB(jsonbBytes)));
         assertEquals(id, jsonPath.extract(json));
         assertEquals(id, jsonPath.extract(jsonBytes));

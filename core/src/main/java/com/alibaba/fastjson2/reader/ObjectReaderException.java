@@ -347,7 +347,7 @@ final class ObjectReaderException<T>
             return null;
         }
 
-        return readObject(JSONReader.of(JSON.toJSONString(map)), features);
+        return readObject(JSONReaderMethods.of(JSON.toJSONString(map)), features);
     }
 
     @Override

@@ -14,11 +14,11 @@ public class JSONValidator {
     }
 
     public static JSONValidator fromUtf8(byte[] jsonBytes) {
-        return new JSONValidator(JSONReader.of(jsonBytes));
+        return new JSONValidator(JSONReaderMethods.of(jsonBytes));
     }
 
     public static JSONValidator from(String jsonStr) {
-        return new JSONValidator(JSONReader.of(jsonStr));
+        return new JSONValidator(JSONReaderMethods.of(jsonStr));
     }
 
     public static JSONValidator from(JSONReader jsonReader) {

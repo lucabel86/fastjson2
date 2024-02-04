@@ -162,7 +162,7 @@ public abstract class JSONSchema {
             return Any.NOT_ANY;
         }
 
-        try (JSONReader reader = JSONReader.of(schema)) {
+        try (JSONReader reader = JSONReaderMethods.of(schema)) {
             ObjectReader<?> objectReader = reader.getObjectReader(Object.class);
             JSONObject object = (JSONObject) objectReader.readObject(reader, null, null, 0);
             return of(object);

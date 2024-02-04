@@ -1308,7 +1308,7 @@ public interface JSONB {
     }
 
     static byte[] fromJSONBytes(byte[] jsonUtf8Bytes) {
-        JSONReader reader = JSONReader.of(jsonUtf8Bytes);
+        JSONReader reader = JSONReaderMethods.of(jsonUtf8Bytes);
         ObjectReader objectReader = reader.getObjectReader(Object.class);
         Object object = objectReader.readObject(reader, null, null, 0);
         return JSONB.toBytes(object);

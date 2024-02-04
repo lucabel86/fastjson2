@@ -2,6 +2,7 @@ package com.alibaba.fastjson2.util;
 
 import com.alibaba.fastjson2.JSONException;
 import com.alibaba.fastjson2.JSONReader;
+import com.alibaba.fastjson2.JSONReaderMethods;
 import com.alibaba.fastjson2.reader.ObjectReaderImplDate;
 
 import java.nio.charset.Charset;
@@ -1255,7 +1256,7 @@ public class DateUtils {
         long millis;
         char c0 = (char) chars[off];
         if (c0 == '"' && chars[len - 1] == '"') {
-            try (JSONReader jsonReader = JSONReader.of(chars, off, len, charset)) {
+            try (JSONReader jsonReader = JSONReaderMethods.of(chars, off, len, charset)) {
                 Date date = (Date) ObjectReaderImplDate.INSTANCE.readObject(
                         jsonReader,
                         null,
@@ -1360,7 +1361,7 @@ public class DateUtils {
         long millis;
         char c0 = chars[off];
         if (c0 == '"' && chars[len - 1] == '"') {
-            try (JSONReader jsonReader = JSONReader.of(chars, off, len)) {
+            try (JSONReader jsonReader = JSONReaderMethods.of(chars, off, len)) {
                 Date date = (Date) ObjectReaderImplDate.INSTANCE.readObject(
                         jsonReader,
                         null,

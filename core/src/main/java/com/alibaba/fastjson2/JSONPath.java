@@ -51,13 +51,13 @@ public abstract class JSONPath {
     }
 
     public static Object extract(String json, String path) {
-        JSONReader jsonReader = JSONReader.of(json);
+        JSONReader jsonReader = JSONReaderMethods.of(json);
         JSONPath jsonPath = JSONPath.of(path);
         return jsonPath.extract(jsonReader);
     }
 
     public static Object extract(String json, String path, Feature... features) {
-        JSONReader jsonReader = JSONReader.of(json);
+        JSONReader jsonReader = JSONReaderMethods.of(json);
         JSONPath jsonPath = JSONPath.of(path, features);
         return jsonPath.extract(jsonReader);
     }
@@ -248,7 +248,7 @@ public abstract class JSONPath {
             return null;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(jsonStr, createContext())) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(jsonStr, createContext())) {
             return extract(jsonReader);
         }
     }
@@ -258,7 +258,7 @@ public abstract class JSONPath {
             return null;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(jsonBytes, createContext())) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(jsonBytes, createContext())) {
             return extract(jsonReader);
         }
     }
@@ -268,7 +268,7 @@ public abstract class JSONPath {
             return null;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(jsonBytes, off, len, charset, createContext())) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(jsonBytes, off, len, charset, createContext())) {
             return extract(jsonReader);
         }
     }

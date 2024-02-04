@@ -311,7 +311,7 @@ class JSONPathSegmentName
                 context.value =
                         JSONPath.of("$." + name)
                                 .extract(
-                                        JSONReader.of(str));
+                                        JSONReaderMethods.of(str));
                 return;
             }
 

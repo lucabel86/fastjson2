@@ -443,7 +443,7 @@ public final class ObjectReaderImplMap
         if (jsonReader.isString() && !jsonReader.isTypeRedirect()) {
             String str = jsonReader.readString();
             if (!str.isEmpty()) {
-                try (JSONReader strReader = JSONReader.of(str, jsonReader.getContext())) {
+                try (JSONReader strReader = JSONReaderMethods.of(str, jsonReader.getContext())) {
                     strReader.read(object, features);
                 }
             }

@@ -383,8 +383,8 @@ public class JSONReaderFloatTest {
     public void test25_x1() {
         String str = "0.012345678901234567890";
         double d = Double.parseDouble(str);
-        double d1 = JSONReader.of(str.getBytes()).readDoubleValue();
-        double d2 = JSONReader.of(str.toCharArray()).readDoubleValue();
+        double d1 = JSONReaderMethods.of(str.getBytes()).readDoubleValue();
+        double d2 = JSONReaderMethods.of(str.toCharArray()).readDoubleValue();
         assertEquals(d, d1);
         assertEquals(d, d2);
     }
@@ -550,7 +550,7 @@ public class JSONReaderFloatTest {
         for (int i = 0; i < 1000_000; ++i) {
             int len = IOUtils.stringSize(i);
             IOUtils.getChars(i, len + 2, chars);
-            JSONReader jsonReader = JSONReader.of(chars, 0, len + 2);
+            JSONReader jsonReader = JSONReaderMethods.of(chars, 0, len + 2);
 
             String str = new String(chars, 0, len + 2);
             double doubleValue = Double.parseDouble(str);
@@ -572,7 +572,7 @@ public class JSONReaderFloatTest {
         for (int i = 0; i < 1000_000; ++i) {
             int len = IOUtils.stringSize(i);
             IOUtils.getChars(i, len + off + 2, chars);
-            JSONReader jsonReader = JSONReader.of(chars, 0, len + off + 2);
+            JSONReader jsonReader = JSONReaderMethods.of(chars, 0, len + off + 2);
 
             String str = new String(chars, 0, len + off + 2);
             double doubleValue = Double.parseDouble(str);
@@ -594,7 +594,7 @@ public class JSONReaderFloatTest {
         for (int i = 0; i < 1000_000; ++i) {
             int len = IOUtils.stringSize(i);
             IOUtils.getChars(i, len + off + 2, chars);
-            JSONReader jsonReader = JSONReader.of(chars, 0, len + off + 2);
+            JSONReader jsonReader = JSONReaderMethods.of(chars, 0, len + off + 2);
 
             String str = new String(chars, 0, len + off + 2);
             double doubleValue = Double.parseDouble(str);
@@ -616,7 +616,7 @@ public class JSONReaderFloatTest {
         for (int i = 0; i < 1000_000; ++i) {
             int len = IOUtils.stringSize(i);
             IOUtils.getChars(i, len + off + 2, chars);
-            JSONReader jsonReader = JSONReader.of(chars, 0, len + off + 2);
+            JSONReader jsonReader = JSONReaderMethods.of(chars, 0, len + off + 2);
 
             String str = new String(chars, 0, len + off + 2);
             double doubleValue = Double.parseDouble(str);
@@ -638,7 +638,7 @@ public class JSONReaderFloatTest {
         for (int i = 0; i < 1000_000; ++i) {
             int len = IOUtils.stringSize(i);
             IOUtils.getChars(i, len + off + 2, chars);
-            JSONReader jsonReader = JSONReader.of(chars, 0, len + off + 2);
+            JSONReader jsonReader = JSONReaderMethods.of(chars, 0, len + off + 2);
 
             String str = new String(chars, 0, len + off + 2);
             double doubleValue = Double.parseDouble(str);
@@ -651,10 +651,10 @@ public class JSONReaderFloatTest {
         String str = "0.0000000000100001";
         double d = Double.parseDouble(str);
 
-        double v = JSONReader.of(str.getBytes()).readDoubleValue();
+        double v = JSONReaderMethods.of(str.getBytes()).readDoubleValue();
         assertEquals(d, v);
 
-        double v1 = JSONReader.of(str.toCharArray()).readDoubleValue();
+        double v1 = JSONReaderMethods.of(str.toCharArray()).readDoubleValue();
         assertEquals(d, v1);
     }
 
@@ -663,10 +663,10 @@ public class JSONReaderFloatTest {
         String str = ".0000000000100001";
         double d = Double.parseDouble(str);
 
-        double v = JSONReader.of(str.getBytes()).readDoubleValue();
+        double v = JSONReaderMethods.of(str.getBytes()).readDoubleValue();
         assertEquals(d, v);
 
-        double v1 = JSONReader.of(str.toCharArray()).readDoubleValue();
+        double v1 = JSONReaderMethods.of(str.toCharArray()).readDoubleValue();
         assertEquals(d, v1);
     }
 

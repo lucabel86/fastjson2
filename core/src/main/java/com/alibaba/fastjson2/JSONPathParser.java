@@ -29,7 +29,7 @@ class JSONPathParser {
     boolean negative;
 
     public JSONPathParser(String str) {
-        this.jsonReader = JSONReader.of(this.path = str, JSONPath.PARSE_CONTEXT);
+        this.jsonReader = JSONReaderMethods.of(this.path = str, JSONPath.PARSE_CONTEXT);
 
         if (jsonReader.ch == 'l' && jsonReader.nextIfMatchIdent('l', 'a', 'x')) {
             lax = true;

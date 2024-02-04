@@ -135,7 +135,7 @@ public class JSONArray
                 return null;
             }
 
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             return JSONFactory.ARRAY_READER.readObject(reader, null, null, 0);
         }
 
@@ -189,7 +189,7 @@ public class JSONArray
                 return null;
             }
 
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             return JSONFactory.OBJECT_READER.readObject(reader, null, null, 0);
         }
 
@@ -1184,7 +1184,7 @@ public class JSONArray
         }
 
         String json = JSON.toJSONString(value);
-        JSONReader jsonReader = JSONReader.of(json);
+        JSONReader jsonReader = JSONReaderMethods.of(json);
         jsonReader.context.config(features);
 
         ObjectReader objectReader = provider.getObjectReader(clazz, fieldBased);
@@ -1261,7 +1261,7 @@ public class JSONArray
         }
 
         String json = JSON.toJSONString(value);
-        JSONReader jsonReader = JSONReader.of(json);
+        JSONReader jsonReader = JSONReaderMethods.of(json);
         jsonReader.context.config(features);
 
         if (objectReader == null) {

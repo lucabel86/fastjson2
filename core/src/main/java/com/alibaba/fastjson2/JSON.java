@@ -54,7 +54,7 @@ public interface JSON {
 
         ObjectReaderProvider provider = JSONFactory.getDefaultObjectReaderProvider();
         final JSONReader.Context context = new JSONReader.Context(provider);
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             Object object;
             char ch = reader.current();
 
@@ -103,7 +103,7 @@ public interface JSON {
         final JSONReader.Context context = new JSONReader.Context(provider, features);
         final ObjectReader<?> objectReader = provider.getObjectReader(Object.class, false);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             context.config(features);
             Object object = objectReader.readObject(reader, null, null, 0);
             if (reader.ch != EOI && (context.features & IgnoreCheckClose.mask) == 0) {
@@ -133,7 +133,7 @@ public interface JSON {
         final JSONReader.Context context = new JSONReader.Context(provider, features);
         ObjectReader<?> objectReader = provider.getObjectReader(Object.class, false);
 
-        try (JSONReader reader = JSONReader.of(text, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, offset, length, context)) {
             Object object = objectReader.readObject(reader, null, null, 0);
             if (reader.ch != EOI && (context.features & IgnoreCheckClose.mask) == 0) {
                 throw new JSONException(reader.info("input not end"));
@@ -159,7 +159,7 @@ public interface JSON {
 
         ObjectReader<?> objectReader = context.provider.getObjectReader(Object.class, false);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             Object object = objectReader.readObject(reader, null, null, 0);
             if (reader.ch != EOI && (context.features & IgnoreCheckClose.mask) == 0) {
                 throw new JSONException(reader.info("input not end"));
@@ -186,7 +186,7 @@ public interface JSON {
         final JSONReader.Context context = new JSONReader.Context(provider, features);
         ObjectReader<?> objectReader = provider.getObjectReader(Object.class, false);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             Object object = objectReader.readObject(reader, null, null, 0);
             if (reader.ch != EOI && (context.features & IgnoreCheckClose.mask) == 0) {
                 throw new JSONException(reader.info("input not end"));
@@ -213,7 +213,7 @@ public interface JSON {
         final JSONReader.Context context = new JSONReader.Context(provider, features);
         ObjectReader<?> objectReader = provider.getObjectReader(Object.class, false);
 
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             Object object = objectReader.readObject(reader, null, null, 0);
             if (reader.ch != EOI && (context.features & IgnoreCheckClose.mask) == 0) {
                 throw new JSONException(reader.info("input not end"));
@@ -236,7 +236,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -267,7 +267,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -301,7 +301,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(text, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, offset, length, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -335,7 +335,7 @@ public interface JSON {
             return null;
         }
 
-        try (JSONReader reader = JSONReader.of(text, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, offset, length, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -366,7 +366,7 @@ public interface JSON {
             return null;
         }
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -397,7 +397,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(input, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(input, context)) {
             if (reader.isEnd()) {
                 return null;
             }
@@ -429,7 +429,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(input, StandardCharsets.UTF_8, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(input, StandardCharsets.UTF_8, context)) {
             if (reader.isEnd()) {
                 return null;
             }
@@ -460,7 +460,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -491,7 +491,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -523,7 +523,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(in, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(in, charset, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -577,7 +577,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -610,7 +610,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -643,7 +643,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(chars, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, offset, length, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -684,7 +684,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, charset, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -722,7 +722,7 @@ public interface JSON {
                 (defaultReaderFeatures & JSONReader.Feature.FieldBased.mask) != 0
         );
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -760,7 +760,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -811,7 +811,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(type, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -849,7 +849,7 @@ public interface JSON {
                 (defaultReaderFeatures & JSONReader.Feature.FieldBased.mask) != 0
         );
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -879,7 +879,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext();
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -927,7 +927,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(type, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -966,7 +966,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(type, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -998,7 +998,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1032,7 +1032,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, offset, length, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1064,7 +1064,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1101,7 +1101,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1132,7 +1132,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1164,7 +1164,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(filter, features);
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1198,7 +1198,7 @@ public interface JSON {
             context.setDateFormat(format);
         }
 
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             ObjectReader<T> objectReader = context.getObjectReader(type);
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
@@ -1233,7 +1233,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(chars, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, offset, length, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1263,7 +1263,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext();
         final ObjectReader<T> objectReader = context.getObjectReader(clazz);
 
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1297,7 +1297,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1327,7 +1327,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext();
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1361,7 +1361,7 @@ public interface JSON {
                 (JSONFactory.defaultReaderFeatures & JSONReader.Feature.FieldBased.mask) != 0
         );
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1399,7 +1399,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1435,7 +1435,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         final ObjectReader<T> objectReader = context.provider.getObjectReader(clazz, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1482,7 +1482,7 @@ public interface JSON {
         boolean fieldBased = (context.features & JSONReader.Feature.FieldBased.mask) != 0;
         ObjectReader<T> objectReader = context.provider.getObjectReader(type, fieldBased);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1513,7 +1513,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         final ObjectReader<T> objectReader = context.getObjectReader(clazz);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, clazz, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1544,7 +1544,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1575,7 +1575,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         final ObjectReader<T> objectReader = context.getObjectReader(objectClass);
 
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             T object = objectReader.readObject(reader, objectClass, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1606,7 +1606,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1638,7 +1638,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(filter, features);
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1673,7 +1673,7 @@ public interface JSON {
         }
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1703,7 +1703,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext();
         final ObjectReader<T> objectReader = context.getObjectReader(objectClass);
 
-        try (JSONReader reader = JSONReader.of(buffer, null, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(buffer, null, context)) {
             T object = objectReader.readObject(reader, objectClass, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1734,7 +1734,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(input, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(input, context)) {
             if (reader.isEnd()) {
                 return null;
             }
@@ -1770,7 +1770,7 @@ public interface JSON {
         context.config(features);
         final ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(input, StandardCharsets.UTF_8, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(input, StandardCharsets.UTF_8, context)) {
             if (reader.isEnd()) {
                 return null;
             }
@@ -1888,7 +1888,7 @@ public interface JSON {
         }
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(input, StandardCharsets.UTF_8, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(input, StandardCharsets.UTF_8, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1920,7 +1920,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(input, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(input, charset, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1952,7 +1952,7 @@ public interface JSON {
 
         final JSONReader.Context context = JSONFactory.createReadContext();
         final ObjectReader<T> objectReader = context.getObjectReader(type);
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, charset, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -1984,7 +1984,7 @@ public interface JSON {
 
         final JSONReader.Context context = JSONFactory.createReadContext();
         ObjectReader<T> objectReader = context.getObjectReader(type);
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, charset, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -2024,7 +2024,7 @@ public interface JSON {
         final JSONReader.Context context = JSONFactory.createReadContext(features);
         ObjectReader<T> objectReader = context.getObjectReader(type);
 
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, charset, context)) {
             T object = objectReader.readObject(reader, type, null, 0);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(object);
@@ -2102,7 +2102,7 @@ public interface JSON {
                     if (bytes[k] == delimiter) {
                         end = k;
 
-                        JSONReader jsonReader = JSONReader.of(bytes, start, end - start, charset, context);
+                        JSONReader jsonReader = JSONReaderMethods.of(bytes, start, end - start, charset, context);
                         if (objectReader == null) {
                             objectReader = context.getObjectReader(type);
                         }
@@ -2181,7 +2181,7 @@ public interface JSON {
                     if (chars[k] == delimiter) {
                         end = k;
 
-                        JSONReader jsonReader = JSONReader.of(chars, start, end - start, context);
+                        JSONReader jsonReader = JSONReaderMethods.of(chars, start, end - start, context);
                         if (objectReader == null) {
                             objectReader = context.getObjectReader(type);
                         }
@@ -2226,7 +2226,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2256,7 +2256,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2289,7 +2289,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, charset, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2319,7 +2319,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2350,7 +2350,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2404,7 +2404,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(in, StandardCharsets.UTF_8, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(in, StandardCharsets.UTF_8, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2437,7 +2437,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2465,7 +2465,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2493,7 +2493,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2521,7 +2521,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext();
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             List<T> list = reader.readList(types);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2550,7 +2550,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2579,7 +2579,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(chars, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(chars, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2607,7 +2607,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(text, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(text, context)) {
             if (reader.nextIfNull()) {
                 return null;
             }
@@ -2647,7 +2647,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2676,7 +2676,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(bytes, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -2715,7 +2715,7 @@ public interface JSON {
         }
 
         final JSONReader.Context context = JSONFactory.createReadContext(features);
-        try (JSONReader reader = JSONReader.of(bytes, offset, length, charset, context)) {
+        try (JSONReader reader = JSONReaderMethods.of(bytes, offset, length, charset, context)) {
             List<T> list = reader.readArray(type);
             if (reader.resolveTasks != null) {
                 reader.handleResolveTasks(list);
@@ -3267,7 +3267,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(text)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(text)) {
             jsonReader.skipValue();
             return jsonReader.isEnd() && !jsonReader.comma;
         } catch (JSONException | ArrayIndexOutOfBoundsException error) {
@@ -3287,7 +3287,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(text, JSONFactory.createReadContext(features))) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(text, JSONFactory.createReadContext(features))) {
             jsonReader.skipValue();
             return jsonReader.isEnd() && !jsonReader.comma;
         } catch (JSONException | ArrayIndexOutOfBoundsException error) {
@@ -3306,7 +3306,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(chars)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(chars)) {
             jsonReader.skipValue();
             return jsonReader.isEnd();
         } catch (JSONException | ArrayIndexOutOfBoundsException error) {
@@ -3325,7 +3325,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(text)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(text)) {
             if (!jsonReader.isObject()) {
                 return false;
             }
@@ -3347,7 +3347,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(bytes)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(bytes)) {
             if (!jsonReader.isObject()) {
                 return false;
             }
@@ -3369,7 +3369,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(text)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(text)) {
             if (!jsonReader.isArray()) {
                 return false;
             }
@@ -3391,7 +3391,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(bytes)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(bytes)) {
             jsonReader.skipValue();
             return jsonReader.isEnd();
         } catch (JSONException | ArrayIndexOutOfBoundsException error) {
@@ -3425,7 +3425,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(bytes)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(bytes)) {
             if (!jsonReader.isArray()) {
                 return false;
             }
@@ -3450,7 +3450,7 @@ public interface JSON {
             return false;
         }
 
-        try (JSONReader jsonReader = JSONReader.of(bytes, offset, length, charset)) {
+        try (JSONReader jsonReader = JSONReaderMethods.of(bytes, offset, length, charset)) {
             jsonReader.skipValue();
             return jsonReader.isEnd();
         } catch (JSONException | ArrayIndexOutOfBoundsException error) {

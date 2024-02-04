@@ -1,12 +1,6 @@
 package com.alibaba.fastjson2.reader;
 
-import com.alibaba.fastjson2.JSON;
-import com.alibaba.fastjson2.JSONArray;
-import com.alibaba.fastjson2.JSONFactory;
-import com.alibaba.fastjson2.JSONObject;
-import com.alibaba.fastjson2.JSONPath;
-import com.alibaba.fastjson2.JSONReader;
-import com.alibaba.fastjson2.PropertyNamingStrategy;
+import com.alibaba.fastjson2.*;
 import com.alibaba.fastjson2.annotation.JSONField;
 import com.alibaba.fastjson2.codec.FieldInfo;
 import com.alibaba.fastjson2.schema.JSONSchema;
@@ -446,7 +440,7 @@ public abstract class FieldReader<T>
                 ObjectReader initReader = getInitReader();
                 if (initReader != null) {
                     String fieldValueJson = JSON.toJSONString(fieldValue);
-                    typedFieldValue = initReader.readObject(JSONReader.of(fieldValueJson), fieldType, fieldName, features);
+                    typedFieldValue = initReader.readObject(JSONReaderMethods.of(fieldValueJson), fieldType, fieldName, features);
                 } else {
                     typedFieldValue = TypeUtils.cast(fieldValue, fieldClass, provider);
                 }
@@ -454,7 +448,7 @@ public abstract class FieldReader<T>
                 if (autoCast) {
                     String fieldValueJSONString = JSON.toJSONString(fieldValue);
                     JSONReader.Context readContext = JSONFactory.createReadContext(features);
-                    try (JSONReader jsonReader = JSONReader.of(fieldValueJSONString, readContext)) {
+                    try (JSONReader jsonReader = JSONReaderMethods.of(fieldValueJSONString, readContext)) {
                         ObjectReader fieldObjectReader = getObjectReader(jsonReader);
                         typedFieldValue = fieldObjectReader.readObject(jsonReader, null, fieldName, features);
                     }

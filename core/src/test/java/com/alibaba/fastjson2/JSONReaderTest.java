@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JSONReaderTest {
     @Test
     public void test_null() {
-        assertThrows(NullPointerException.class, () -> JSONReader.of((String) null));
+        assertThrows(NullPointerException.class, () -> JSONReaderMethods.of((String) null));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class JSONReaderTest {
         long valueHash = Fnv.hashCode64(value);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -42,7 +42,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -52,7 +52,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -62,7 +62,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -84,7 +84,7 @@ public class JSONReaderTest {
         long valueHash = Fnv.hashCode64(value);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -94,7 +94,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -104,7 +104,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -114,7 +114,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -136,7 +136,7 @@ public class JSONReaderTest {
         long valueHash = Fnv.hashCode64(value);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -146,7 +146,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -156,7 +156,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -178,7 +178,7 @@ public class JSONReaderTest {
         long valueHash = Fnv.hashCode64(value);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -188,7 +188,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -198,7 +198,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -220,7 +220,7 @@ public class JSONReaderTest {
         long valueHash = Fnv.hashCode64(value);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -230,7 +230,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -240,7 +240,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -261,7 +261,7 @@ public class JSONReaderTest {
         String value = fieldName;
         long hash = Fnv.hashCode64(fieldName);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -271,7 +271,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -281,7 +281,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -291,7 +291,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -301,7 +301,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -311,7 +311,7 @@ public class JSONReaderTest {
             assertTrue(reader.nextIfObjectEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -332,22 +332,22 @@ public class JSONReaderTest {
         String value = fieldName;
         long hash = Fnv.hashCode64(fieldName);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertEquals(hash, reader.readFieldNameHashCodeUnquote());
             assertEquals(fieldName, reader.getFieldName());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertEquals(hash, reader.readFieldNameHashCodeUnquote());
             assertEquals(fieldName, reader.getFieldName());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             assertEquals(hash, reader.readFieldNameHashCodeUnquote());
             assertEquals(fieldName, reader.getFieldName());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
             assertEquals(hash, reader.readFieldNameHashCodeUnquote());
             assertEquals(fieldName, reader.getFieldName());
         }
@@ -360,12 +360,12 @@ public class JSONReaderTest {
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             reader.next();
             assertEquals(ch, reader.current());
         }
@@ -378,12 +378,12 @@ public class JSONReaderTest {
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
 
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             reader.next();
             assertEquals(ch, reader.current());
         }
@@ -395,7 +395,7 @@ public class JSONReaderTest {
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
             JSONException error = null;
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             try {
                 reader.readNumber();
             } catch (JSONException ex) {
@@ -406,7 +406,7 @@ public class JSONReaderTest {
         }
         {
             JSONException error = null;
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             try {
                 reader.readNumber();
             } catch (JSONException ex) {
@@ -422,7 +422,7 @@ public class JSONReaderTest {
         String str = "\"\\x29\\u4e2dabcdef\",1";
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             JSONException error = null;
             try {
                 reader.readNumber();
@@ -433,7 +433,7 @@ public class JSONReaderTest {
             assertEquals('1', reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             JSONException error = null;
             try {
                 reader.readNumber();
@@ -444,7 +444,7 @@ public class JSONReaderTest {
             assertEquals('1', reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             JSONException error = null;
             try {
                 reader.readNumber();
@@ -461,17 +461,17 @@ public class JSONReaderTest {
         String str = "\"\\x29\\u4e2dabcdef\",1";
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertEquals(")中abcdef", reader.readString());
             assertEquals('1', reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertEquals(")中abcdef", reader.readString());
             assertEquals('1', reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             assertEquals(")中abcdef", reader.readString());
             assertEquals('1', reader.current());
         }
@@ -501,7 +501,7 @@ public class JSONReaderTest {
 
     @Test
     public void testContext() {
-        JSONReader jsonReader = JSONReader.of("{}");
+        JSONReader jsonReader = JSONReaderMethods.of("{}");
         JSONReader.Context context = jsonReader.getContext();
 
         context.config(JSONReader.Feature.UseNativeObject, true);
@@ -574,7 +574,7 @@ public class JSONReaderTest {
         String value = fieldName;
         long hash = Fnv.hashCode64(fieldName);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             reader.nextIfObjectStart();
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -583,7 +583,7 @@ public class JSONReaderTest {
             assertEquals(value, reader.getString());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.US_ASCII);
             reader.nextIfObjectStart();
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -592,7 +592,7 @@ public class JSONReaderTest {
             assertEquals(value, reader.getString());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             reader.nextIfObjectStart();
             assertEquals(hash, reader.readFieldNameHashCode());
             assertEquals(hash, reader.getNameHashCodeLCase());
@@ -1006,7 +1006,7 @@ public class JSONReaderTest {
     @Test
     public void readLocalTime5() {
         String str = "\"12:34\"";
-        JSONReader jsonReader = JSONReader.of(str.getBytes());
+        JSONReader jsonReader = JSONReaderMethods.of(str.getBytes());
         LocalTime localTime = jsonReader.readLocalTime();
         assertEquals(12, localTime.getHour());
         assertEquals(34, localTime.getMinute());
@@ -1019,18 +1019,18 @@ public class JSONReaderTest {
         String str = "Infinity";
         char[] chars = str.toCharArray();
         byte[] bytes = str.getBytes();
-        assertTrue(JSONReader.of(str).nextIfInfinity());
-        assertTrue(JSONReader.of(chars).nextIfInfinity());
-        assertTrue(JSONReader.of(bytes).nextIfInfinity());
-        assertTrue(JSONReader.of(new StringReader(str)).nextIfInfinity());
-        assertTrue(JSONReader.of(new StringReader(str), JSONFactory.createReadContext()).nextIfInfinity());
-        assertTrue(JSONReader.of(JSONFactory.createReadContext(), str).nextIfInfinity());
+        assertTrue(JSONReaderMethods.of(str).nextIfInfinity());
+        assertTrue(JSONReaderMethods.of(chars).nextIfInfinity());
+        assertTrue(JSONReaderMethods.of(bytes).nextIfInfinity());
+        assertTrue(JSONReaderMethods.of(new StringReader(str)).nextIfInfinity());
+        assertTrue(JSONReaderMethods.of(new StringReader(str), JSONFactory.createReadContext()).nextIfInfinity());
+        assertTrue(JSONReaderMethods.of(JSONFactory.createReadContext(), str).nextIfInfinity());
     }
 
     @Test
     public void readMap() {
         String str = "{\"123\":\"456\",\"234\":\"567\"}";
-        JSONReader jsonReader = JSONReader.of(JSONFactory.createReadContext(), str.toCharArray());
+        JSONReader jsonReader = JSONReaderMethods.of(JSONFactory.createReadContext(), str.toCharArray());
         Map map = new HashMap();
         jsonReader.read(map, Long.class, BigDecimal.class, 0L);
         assertEquals(new BigDecimal("456"), map.get(123L));
@@ -1039,7 +1039,7 @@ public class JSONReaderTest {
     @Test
     public void readArray() {
         String str = "[\"123\",\"456\"]";
-        JSONReader jsonReader = JSONReader.of(JSONFactory.createReadContext(), str.getBytes());
+        JSONReader jsonReader = JSONReaderMethods.of(JSONFactory.createReadContext(), str.getBytes());
         Object[] array = jsonReader.readArray(new Type[]{Long.class, BigDecimal.class});
         assertEquals(123L, array[0]);
         assertEquals(new BigDecimal("456"), array[1]);
@@ -1049,7 +1049,7 @@ public class JSONReaderTest {
     public void readArray1() {
         String str = "[\"123\",\"456\", \"678\"]";
         char[] chars = str.toCharArray();
-        JSONReader jsonReader = JSONReader.of(chars, 0, chars.length, JSONFactory.createReadContext());
+        JSONReader jsonReader = JSONReaderMethods.of(chars, 0, chars.length, JSONFactory.createReadContext());
         Object[] array = jsonReader.readArray(new Type[]{Long.class, BigDecimal.class, String.class});
         assertEquals(123L, array[0]);
         assertEquals(new BigDecimal("456"), array[1]);
@@ -1086,17 +1086,17 @@ public class JSONReaderTest {
         String str = "{" + ch;
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
@@ -1108,17 +1108,17 @@ public class JSONReaderTest {
         String str = "{" + ch;
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
@@ -1131,22 +1131,22 @@ public class JSONReaderTest {
         byte[] utf8 = str.getBytes(StandardCharsets.UTF_8);
         byte[] latin1 = str.getBytes(StandardCharsets.ISO_8859_1);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(utf8);
+            JSONReader reader = JSONReaderMethods.of(utf8);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
@@ -1159,22 +1159,22 @@ public class JSONReaderTest {
         byte[] utf8 = str.getBytes(StandardCharsets.UTF_8);
         byte[] latin1 = str.getBytes(StandardCharsets.ISO_8859_1);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(utf8);
+            JSONReader reader = JSONReaderMethods.of(utf8);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
             assertTrue(reader.nextIfObjectStart());
             assertEquals(ch, reader.current());
         }
@@ -1185,22 +1185,22 @@ public class JSONReaderTest {
         String str = "{";
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
@@ -1211,22 +1211,22 @@ public class JSONReaderTest {
         String str = "{";
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
@@ -1237,22 +1237,22 @@ public class JSONReaderTest {
         String str = "// abc \n {";
         byte[] strBytes = str.getBytes(StandardCharsets.UTF_8);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes);
+            JSONReader reader = JSONReaderMethods.of(strBytes);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
         {
-            JSONReader reader = JSONReader.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(strBytes, 0, strBytes.length, StandardCharsets.ISO_8859_1);
             assertTrue(reader.nextIfObjectStart());
             assertTrue(reader.isEnd());
         }
@@ -1265,22 +1265,22 @@ public class JSONReaderTest {
         byte[] utf8 = str.getBytes(StandardCharsets.UTF_8);
         byte[] latin1 = str.getBytes(StandardCharsets.ISO_8859_1);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(utf8);
+            JSONReader reader = JSONReaderMethods.of(utf8);
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
             reader.next();
             assertEquals(ch, reader.current());
         }
@@ -1293,25 +1293,25 @@ public class JSONReaderTest {
         byte[] utf8 = str.getBytes(StandardCharsets.UTF_8);
         byte[] latin1 = str.getBytes(StandardCharsets.ISO_8859_1);
         {
-            JSONReader reader = JSONReader.of(str);
+            JSONReader reader = JSONReaderMethods.of(str);
             assertEquals(ch, reader.current());
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(str.toCharArray());
+            JSONReader reader = JSONReaderMethods.of(str.toCharArray());
             assertEquals(ch, reader.current());
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(utf8);
+            JSONReader reader = JSONReaderMethods.of(utf8);
             assertEquals(ch, reader.current());
             reader.next();
             assertEquals(ch, reader.current());
         }
         {
-            JSONReader reader = JSONReader.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
+            JSONReader reader = JSONReaderMethods.of(latin1, 0, latin1.length, StandardCharsets.ISO_8859_1);
             assertEquals(ch, reader.current());
             reader.next();
             assertEquals(ch, reader.current());
